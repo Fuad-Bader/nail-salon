@@ -43,6 +43,24 @@ async function main() {
   });
   console.log("Created customer user:", customer.email);
 
+  // Create categories first
+  const categories = [
+    "Manicure",
+    "Pedicure",
+    "Artificial Nails",
+    "Nail Art",
+    "Repair",
+  ];
+
+  for (const categoryName of categories) {
+    const category = await prisma.category.upsert({
+      where: { name: categoryName },
+      update: {},
+      create: { name: categoryName },
+    });
+    console.log("Created category:", category.name);
+  }
+
   // Create services
   const services = [
     {

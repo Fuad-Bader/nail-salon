@@ -9,7 +9,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-5xl font-bold mb-6">
-              Welcome to Our Nail Salon
+              Welcome to Cute Tips Nail Salon
             </h1>
             <p className="text-xl mb-8 max-w-2xl mx-auto">
               Experience premium nail care services with expert technicians in a
@@ -27,28 +27,34 @@ export default function Home() {
       {/* Features Section */}
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-center mb-12">
+          <h2 className="text-3xl font-bold text-center mb-12 text-gray-900 dark:text-gray-100">
             Why Choose Us
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="text-center">
               <div className="text-4xl mb-4">💅</div>
-              <h3 className="text-xl font-semibold mb-2">Expert Technicians</h3>
-              <p className="text-gray-600">
+              <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-gray-100">
+                Expert Technicians
+              </h3>
+              <p className="text-gray-600 dark:text-gray-400">
                 Certified professionals with years of experience
               </p>
             </div>
             <div className="text-center">
               <div className="text-4xl mb-4">✨</div>
-              <h3 className="text-xl font-semibold mb-2">Premium Products</h3>
-              <p className="text-gray-600">
+              <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-gray-100">
+                Premium Products
+              </h3>
+              <p className="text-gray-600 dark:text-gray-400">
                 High-quality, safe products for beautiful results
               </p>
             </div>
             <div className="text-center">
               <div className="text-4xl mb-4">📅</div>
-              <h3 className="text-xl font-semibold mb-2">Easy Booking</h3>
-              <p className="text-gray-600">
+              <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-gray-100">
+                Easy Booking
+              </h3>
+              <p className="text-gray-600 dark:text-gray-400">
                 Book your appointment online anytime, anywhere
               </p>
             </div>
@@ -57,18 +63,22 @@ export default function Home() {
       </section>
 
       {/* Services Preview */}
-      <section className="py-16 bg-gray-100">
+      <section className="py-16 bg-gray-100 dark:bg-gray-900 transition-colors">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-center mb-12">Our Services</h2>
+          <h2 className="text-3xl font-bold text-center mb-12 text-gray-900 dark:text-gray-100">
+            Our Services
+          </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {["Manicure", "Pedicure", "Gel Nails", "Nail Art"].map(
               (service) => (
                 <div
                   key={service}
-                  className="bg-white p-6 rounded-lg shadow-md text-center"
+                  className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md text-center transition-colors"
                 >
-                  <h3 className="text-xl font-semibold mb-2">{service}</h3>
-                  <p className="text-gray-600 mb-4">
+                  <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-gray-100">
+                    {service}
+                  </h3>
+                  <p className="text-gray-600 dark:text-gray-400 mb-4">
                     Professional {service.toLowerCase()} services
                   </p>
                 </div>
@@ -84,7 +94,7 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="bg-pink-600 text-white py-16">
+      <section className="bg-pink-600 dark:bg-pink-700 text-white py-16 transition-colors">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-bold mb-4">Ready to Get Started?</h2>
           <p className="text-xl mb-8">

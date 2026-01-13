@@ -4,12 +4,13 @@ import { withAuth, withAdminAuth } from "@/lib/middleware";
 
 export async function GET(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   return withAuth(request, async (req, token) => {
     try {
+      const { id } = await params;
       const appointment = await prisma.appointment.findUnique({
-        where: { id: params.id },
+        where: { id },
         include: {
           service: true,
           user: {
@@ -43,15 +44,16 @@ export async function GET(
 
 export async function PATCH(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   return withAuth(request, async (req, token) => {
     try {
+      const { id } = await params;
       const body = await req.json();
       const { status, date, startTime, endTime, notes } = body;
 
       const appointment = await prisma.appointment.findUnique({
-        where: { id: params.id },
+        where: { id },
       });
 
       if (!appointment) {
@@ -67,7 +69,7 @@ export async function PATCH(
       }
 
       const updatedAppointment = await prisma.appointment.update({
-        where: { id: params.id },
+        where: { id },
         data: {
           ...(status && { status }),
           ...(date && { date: new Date(date) }),
@@ -101,12 +103,13 @@ export async function PATCH(
 
 export async function DELETE(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   return withAuth(request, async (req, token) => {
     try {
+      const { id } = await params;
       const appointment = await prisma.appointment.findUnique({
-        where: { id: params.id },
+        where: { id },
       });
 
       if (!appointment) {
@@ -122,7 +125,7 @@ export async function DELETE(
       }
 
       await prisma.appointment.delete({
-        where: { id: params.id },
+        where: { id },
       });
 
       return NextResponse.json({ message: "Appointment deleted" });

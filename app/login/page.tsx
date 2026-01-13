@@ -47,15 +47,17 @@ export default function LoginPage() {
       <div className="max-w-md w-full">
         <Card>
           <div className="text-center mb-8">
-            <h2 className="text-3xl font-bold text-gray-900">Welcome Back</h2>
-            <p className="mt-2 text-sm text-gray-600">
+            <h2 className="text-3xl font-bold text-gray-900 dark:text-gray-100">
+              Welcome Back
+            </h2>
+            <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">
               Sign in to your account
             </p>
           </div>
 
           <form onSubmit={handleSubmit}>
             {error && (
-              <div className="mb-4 p-3 bg-red-100 border border-red-400 text-red-700 rounded">
+              <div className="mb-4 p-3 bg-red-100 dark:bg-red-900/30 border border-red-400 dark:border-red-800 text-red-700 dark:text-red-400 rounded">
                 {error}
               </div>
             )}
@@ -88,11 +90,11 @@ export default function LoginPage() {
           </form>
 
           <div className="mt-6 text-center">
-            <p className="text-sm text-gray-600">
+            <p className="text-sm text-gray-600 dark:text-gray-400">
               Don't have an account?{" "}
               <Link
                 href="/register"
-                className="text-pink-600 hover:text-pink-700 font-medium"
+                className="text-pink-600 dark:text-pink-400 hover:text-pink-700 dark:hover:text-pink-300 font-medium"
               >
                 Sign up
               </Link>

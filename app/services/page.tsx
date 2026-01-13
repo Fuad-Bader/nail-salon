@@ -52,8 +52,10 @@ export default function ServicesPage() {
   return (
     <div className="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
       <div className="mb-8 text-center">
-        <h1 className="text-4xl font-bold text-gray-900">Our Services</h1>
-        <p className="mt-4 text-lg text-gray-600">
+        <h1 className="text-4xl font-bold text-gray-900 dark:text-gray-100">
+          Our Services
+        </h1>
+        <p className="mt-4 text-lg text-gray-600 dark:text-gray-400">
           Professional nail care services tailored to your needs
         </p>
       </div>
@@ -66,8 +68,8 @@ export default function ServicesPage() {
             onClick={() => setSelectedCategory(category)}
             className={`px-4 py-2 rounded-full font-medium transition-colors ${
               selectedCategory === category
-                ? "bg-pink-600 text-white"
-                : "bg-gray-200 text-gray-700 hover:bg-gray-300"
+                ? "bg-pink-600 dark:bg-pink-700 text-white"
+                : "bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-600"
             }`}
           >
             {category.charAt(0).toUpperCase() + category.slice(1)}
@@ -78,7 +80,9 @@ export default function ServicesPage() {
       {/* Services Grid */}
       {filteredServices.length === 0 ? (
         <div className="text-center py-12">
-          <p className="text-gray-600">No services available at the moment</p>
+          <p className="text-gray-600 dark:text-gray-400">
+            No services available at the moment
+          </p>
         </div>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -88,22 +92,24 @@ export default function ServicesPage() {
               className="hover:shadow-lg transition-shadow"
             >
               <div className="mb-4">
-                <span className="inline-block px-3 py-1 bg-pink-100 text-pink-800 rounded-full text-sm font-medium">
+                <span className="inline-block px-3 py-1 bg-pink-100 dark:bg-pink-900/30 text-pink-800 dark:text-pink-300 rounded-full text-sm font-medium">
                   {service.category}
                 </span>
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">
+              <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-2">
                 {service.name}
               </h3>
               {service.description && (
-                <p className="text-gray-600 mb-4">{service.description}</p>
+                <p className="text-gray-600 dark:text-gray-400 mb-4">
+                  {service.description}
+                </p>
               )}
-              <div className="flex justify-between items-center mt-4 pt-4 border-t border-gray-200">
+              <div className="flex justify-between items-center mt-4 pt-4 border-t border-gray-200 dark:border-gray-700">
                 <div>
-                  <p className="text-2xl font-bold text-pink-600">
+                  <p className="text-2xl font-bold text-pink-600 dark:text-pink-400">
                     ${service.price}
                   </p>
-                  <p className="text-sm text-gray-500">
+                  <p className="text-sm text-gray-500 dark:text-gray-400">
                     {service.duration} min
                   </p>
                 </div>
